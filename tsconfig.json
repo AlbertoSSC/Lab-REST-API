@@ -5,12 +5,13 @@
     "moduleResolution": "node",
     "declaration": false,
     "noImplicitAny": false,
-    "sourceMap": true,
     "jsx": "react",
     "noLib": false,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    
+    "sourceMap": true,
     "baseUrl": "./src/",
     "paths": {
       "common": ["common"],

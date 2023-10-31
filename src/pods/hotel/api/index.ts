@@ -1,2 +1,1 @@
-export * from './hotel.api';
-export * from './hotel.api-model';
+export * from './character.api';
