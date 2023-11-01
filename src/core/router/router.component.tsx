@@ -13,10 +13,7 @@ export const RouterComponent: React.FunctionComponent = () => {
           path={switchRoutes.characterCollection}
           element={<CharacterCollectionScene />}
         />
-        <Route
-          path={switchRoutes.createCharacter}
-          element={<CharacterScene />}
-        />
+
         <Route
           path={switchRoutes.characterDetail}
           element={<CharacterScene />}

@@ -12,7 +12,8 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
 
   const handleLoadCharacter = async () => {
     const apiCharacter = await api.getCharacter(parseInt(id));
-    setCharacter(mapFromApiToVm(apiCharacter));
+    const mapCharacter = mapFromApiToVm(apiCharacter);
+    setCharacter(mapCharacter);
   };
 
   React.useEffect(() => {
@@ -21,5 +22,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     }
   }, []);
 
-  return <CharacterComponent character={character} />;
+  return (
+    <CharacterComponent character={character} setCharacter={setCharacter} />
+  );
 };

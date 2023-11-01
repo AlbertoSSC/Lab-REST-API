@@ -1,12 +1,9 @@
 import * as React from 'react';
 
-import EditIcon from '@mui/icons-material/Edit';
 import {
   Divider,
-  IconButton,
   Avatar,
   Typography,
-  CardActions,
   CardContent,
   CardHeader,
   Card,
@@ -20,11 +17,10 @@ import { CharacterEntityVm } from '../../../common/models/character.vm';
 
 interface Props {
   character: CharacterEntityVm;
-  onEdit: (id: number) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character, onEdit } = props;
+  const { character } = props;
 
   const navigate = useNavigate();
 
@@ -61,11 +57,6 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
           </Typography>
         </div>
       </CardContent>
-      <CardActions>
-        <IconButton onClick={() => onEdit(character.id)}>
-          <EditIcon />
-        </IconButton>
-      </CardActions>
     </Card>
   );
 };

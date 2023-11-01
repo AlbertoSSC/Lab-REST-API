@@ -9,9 +9,9 @@ export const useCharacterCollection = () => {
   >([]);
 
   const loadCharacterCollection = () => {
-    getCharacterCollection().then((result) =>
-      setCharacterCollection(mapToCollection(result, mapFromApiToVm))
-    );
+    getCharacterCollection()
+      .then((result) => mapToCollection(result, mapFromApiToVm))
+      .then((result) => setCharacterCollection(result));
   };
 
   return { characterCollection, loadCharacterCollection };

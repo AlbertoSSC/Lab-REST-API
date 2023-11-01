@@ -10,8 +10,9 @@ export const mapFromApiToVm = (
   species: character.species,
   type: character.type,
   gender: character.gender,
-  origin: character.origin.name,
-  location: character.location.name,
+  origin: character.origin?.name,
+  location: character.location?.name,
+  bestSentences: character.bestSentences,
 });
 
 // `${process.env.BASE_PICTURES_URL}/${character.image}`

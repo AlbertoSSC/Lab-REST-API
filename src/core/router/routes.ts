@@ -22,6 +22,5 @@ interface LinkRoutes extends Omit<SwitchRoutes, 'characterDetail'> {
 
 export const linkRoutes: LinkRoutes = {
   ...switchRoutes,
-  characterDetail: (id) =>
-    generatePath(switchRoutes.characterDetail, { id }),
+  characterDetail: (id) => generatePath(switchRoutes.characterDetail, { id }),
 };
