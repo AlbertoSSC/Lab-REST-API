@@ -1,6 +1,5 @@
 import React from 'react';
 
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import {
@@ -12,9 +11,13 @@ import {
   Typography,
 } from '@mui/material';
 
-import { CharacterEntityVm, mapFromApiToVm } from 'common';
-import { getCharacter } from './api';
-import { styles } from './components';
+import { CharacterEntityVm } from 'common';
+import {
+  addNewSentence,
+  deleteSentence,
+  saveEditedSentence,
+  styles,
+} from './components';
 
 interface Props {
   character: CharacterEntityVm;
@@ -28,57 +31,6 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const [sentenceEdited, setSentenceEdited] = React.useState('');
   const [addingSentences, setAddingSentences] = React.useState(false);
   const [editSentence, setEditSentence] = React.useState<boolean[]>([]);
-
-  const addNewSentence = async () => {
-    const apiCharacter = await getCharacter(character.id);
-    const updatedCharacter = {
-      ...apiCharacter,
-      bestSentences: [...apiCharacter.bestSentences, newSentence],
-    };
-
-    setCharacter(mapFromApiToVm(updatedCharacter));
-
-    await axios.put(
-      'http://localhost:3000/characters/' + character.id.toString(),
-      updatedCharacter
-    );
-
-    setNewSentence('');
-  };
-
-  const deleteSentence = async (index: number) => {
-    const apiCharacter = await getCharacter(character.id);
-    const updatedCharacter = {
-      ...apiCharacter,
-      bestSentences: character.bestSentences.filter((_, i) => i !== index),
-    };
-
-    setCharacter(mapFromApiToVm(updatedCharacter));
-
-    await axios.put(
-      'http://localhost:3000/characters/' + character.id.toString(),
-      updatedCharacter
-    );
-  };
-
-  const saveEditedSentence = async (index: number) => {
-    const apiCharacter = await getCharacter(character.id);
-    const updatedCharacter = {
-      ...apiCharacter,
-      bestSentences: character.bestSentences.map((sentence, i) =>
-        i === index ? sentenceEdited : sentence
-      ),
-    };
-
-    setCharacter(mapFromApiToVm(updatedCharacter));
-
-    await axios.put(
-      'http://localhost:3000/characters/' + character.id.toString(),
-      updatedCharacter
-    );
-
-    disableEditSentence(index);
-  };
 
   const enableEditSentence = (index: number) => {
     const updatedEditSentences = [...editSentence];
@@ -147,7 +99,13 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                               variant="outlined"
                               sx={styles.editButton}
                               onClick={() => {
-                                saveEditedSentence(index);
+                                saveEditedSentence({
+                                  index,
+                                  character,
+                                  setCharacter,
+                                  sentenceEdited,
+                                  disableEditSentence,
+                                });
                               }}
                             >
                               Save
@@ -168,7 +126,13 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                             <Button
                               size="small"
                               variant="outlined"
-                              onClick={() => deleteSentence(index)}
+                              onClick={() =>
+                                deleteSentence({
+                                  index,
+                                  character,
+                                  setCharacter,
+                                })
+                              }
                             >
                               Delete
                             </Button>
@@ -188,7 +152,17 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                     variant="outlined"
                     sx={{ flex: 1, marginRight: '1rem' }}
                   />
-                  <Button variant="contained" onClick={addNewSentence}>
+                  <Button
+                    variant="contained"
+                    onClick={() =>
+                      addNewSentence({
+                        character,
+                        setCharacter,
+                        newSentence,
+                        setNewSentence,
+                      })
+                    }
+                  >
                     Add
                   </Button>
                 </div>

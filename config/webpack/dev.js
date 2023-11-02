@@ -14,7 +14,7 @@ module.exports = merge(base, {
   devServer: {
     hot: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': process.env.API_BASE_URL,
     },
   },
   module: {

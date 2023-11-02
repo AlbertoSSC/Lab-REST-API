@@ -1,19 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 
-import {
-  Divider,
-  Avatar,
-  Typography,
-  CardContent,
-  CardHeader,
-  Card,
-} from '@mui/material';
-
-import { linkRoutes } from 'core/router';
 import { useNavigate } from 'react-router-dom';
 
-import * as classes from './character-card.styles';
-import { CharacterEntityVm } from '../../../common/models/character.vm';
+import { Avatar, CardHeader, Card } from '@mui/material';
+
+import { linkRoutes } from 'core';
+import { CharacterEntityVm } from 'common';
 
 interface Props {
   character: CharacterEntityVm;
@@ -43,20 +35,6 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
         title={character.name}
         subheader={`Status: ${character.status}`}
       />
-      <Divider />
-      <CardContent>
-        <div className={classes.content}>
-          <Typography sx={{ fontStyle: 'oblique' }} gutterBottom>
-            {character.species}, {character.gender}
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom>
-            Location: <br />· {character.location}
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom>
-            Origin: <br />· {character.origin}
-          </Typography>
-        </div>
-      </CardContent>
     </Card>
   );
 };
