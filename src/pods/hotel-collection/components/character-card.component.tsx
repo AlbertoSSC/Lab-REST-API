@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import { css } from '@emotion/css';
 import { Avatar, CardHeader, Card } from '@mui/material';
 
 import { linkRoutes } from 'core';
@@ -20,16 +21,17 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
     navigate(linkRoutes.characterDetail(id));
   };
 
+  const cardStyles = css`
+    flex: 1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e3f2fd;
+    }
+  `;
   return (
-    <Card
-      sx={{
-        flex: 1,
-        cursor: 'pointer',
-        backgroundColor: 'transparent',
-        transition: 'background-color 0.3s',
-      }}
-      onClick={() => navigateToDetail(character.id)}
-    >
+    <Card className={cardStyles} onClick={() => navigateToDetail(character.id)}>
       <CardHeader
         avatar={<Avatar aria-label="Character" src={character.image} />}
         title={character.name}

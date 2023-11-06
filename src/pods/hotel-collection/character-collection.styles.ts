@@ -10,8 +10,8 @@ export const root = css`
 export const list = css`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-row-gap: 2rem;
-  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
