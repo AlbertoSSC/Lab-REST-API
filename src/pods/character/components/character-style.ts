@@ -12,6 +12,9 @@ export const styles = {
     alignItems: 'center',
     maxWidth: '400px',
     padding: '1rem',
+
+    textWrap: 'balance',
+    textAlign: 'center',
   },
 
   avatar: {

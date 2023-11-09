@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ThemeProviderComponent, RouterComponent } from 'core';
+import { SearchCharacterProvider } from 'pods';
 
 const App: React.FunctionComponent = () => {
   return <RouterComponent />;
@@ -9,7 +10,9 @@ const App: React.FunctionComponent = () => {
 const AppProviders: React.FunctionComponent = () => {
   return (
     <ThemeProviderComponent>
-      <App />
+      <SearchCharacterProvider>
+        <App />
+      </SearchCharacterProvider>
     </ThemeProviderComponent>
   );
 };

@@ -3,15 +3,13 @@ import { generatePath } from 'react-router';
 interface SwitchRoutes {
   root: string;
   characterCollection: string;
-  createCharacter: string;
   characterDetail: string;
 }
 
 export const switchRoutes: SwitchRoutes = {
   root: '/',
-  characterCollection: '/characters',
-  createCharacter: '/characters/create',
-  characterDetail: '/characters/:id',
+  characterCollection: '/character',
+  characterDetail: '/character/:id',
 };
 
 type NavigationFunction = (id: number) => string;

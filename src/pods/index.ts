@@ -1,2 +1,2 @@
-export *from './hotel'
-export *from './hotel-collection'
+export *from './character'
+export *from './character-collection'

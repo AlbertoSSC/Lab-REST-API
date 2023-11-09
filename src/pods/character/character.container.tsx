@@ -22,7 +22,5 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     }
   }, []);
 
-  return (
-    <CharacterComponent character={character} setCharacter={setCharacter} />
-  );
+  return <CharacterComponent character={character} />;
 };

@@ -1,10 +1,15 @@
 import * as React from 'react';
 
 import { AppLayout } from 'layouts';
-import { CharacterCollectionContainer } from 'pods';
+import {
+  CharacterCollectionContainer,
+  CharacterCollectionProvider,
+} from 'pods';
 
 export const CharacterCollectionScene = () => (
   <AppLayout>
-    <CharacterCollectionContainer />
+    <CharacterCollectionProvider>
+      <CharacterCollectionContainer />
+    </CharacterCollectionProvider>
   </AppLayout>
 );

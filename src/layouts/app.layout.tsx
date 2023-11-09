@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { AppBar, Toolbar, IconButton } from '@mui/material/';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-
 import * as classes from './app.layout.styles';
+
+import { AppBar, Toolbar } from '@mui/material/';
 
 interface Props {
   children: React.ReactNode;
@@ -15,11 +14,7 @@ export const AppLayout: React.FC<Props> = (props) => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar variant="dense">
-          <IconButton color="inherit" aria-label="Menu">
-            <AccountCircle />
-          </IconButton>
-        </Toolbar>
+        <Toolbar variant="dense"></Toolbar>
       </AppBar>
       <main className={classes.content}>{children}</main>
     </>
