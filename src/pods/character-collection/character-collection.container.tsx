@@ -59,18 +59,19 @@ export const CharacterCollectionContainer = () => {
         setSearchCharacterTotalPages={setSearchCharacterTotalPages}
         totalPages={totalPages}
       />
-
-      {searching ? (
-        <LoadingSkeleton />
-      ) : (
-        <CharacterCollectionComponent
-          characterList={
-            searchCharacter.length === 0
-              ? characterCollection
-              : searchCharacter[page - 1]
-          }
-        />
-      )}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        {searching ? (
+          <LoadingSkeleton />
+        ) : (
+          <CharacterCollectionComponent
+            characterList={
+              searchCharacter.length === 0
+                ? characterCollection
+                : searchCharacter[page - 1]
+            }
+          />
+        )}
+      </div>
       <Pagination
         sx={{ m: '2rem', display: 'flex', justifyContent: 'center' }}
         count={

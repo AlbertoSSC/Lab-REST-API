@@ -34,7 +34,11 @@ export const LocationCollectionContainer = () => {
       <h3 style={{ display: 'flex', justifyContent: 'center' }}>
         Location collection
       </h3>
-      <LocationCollectionComponent locationList={locationList} />
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <LocationCollectionComponent locationList={locationList} />
+      </div>
+
       <Pagination
         sx={{ m: '2rem', display: 'flex', justifyContent: 'center' }}
         count={totalPages}

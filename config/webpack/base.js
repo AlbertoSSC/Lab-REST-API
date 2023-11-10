@@ -8,13 +8,16 @@ module.exports = merge(
     context: helpers.resolveFromRootPath('src'),
     resolve: {
       alias: {
+        '@images': helpers.resolveFromRootPath('src/assets/images'),
         common: helpers.resolveFromRootPath('src/common'),
         core: helpers.resolveFromRootPath('src/core'),
         layouts: helpers.resolveFromRootPath('src/layouts'),
         pods: helpers.resolveFromRootPath('src/pods'),
         scenes: helpers.resolveFromRootPath('src/scenes'),
         'common-app': helpers.resolveFromRootPath('src/common-app'),
+        assets: helpers.resolveFromRootPath('src/assets'),
       },
+      modules: [helpers.resolveFromRootPath('src'), 'node_modules'],
       extensions: ['.js', '.ts', '.tsx'],
     },
     entry: {
@@ -26,6 +29,18 @@ module.exports = merge(
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+                context: 'src',
+              },
+            },
+          ],
         },
       ],
     },

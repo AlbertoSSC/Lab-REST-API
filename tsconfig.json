@@ -20,6 +20,7 @@
       "pods": ["pods"],
       "scenes": ["scenes"],
       "common-app": ["common-app"],
+      "assets/*": ["./assets/*"],
       "*": ["types/*"]
     }
   },

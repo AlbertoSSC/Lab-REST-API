@@ -14,7 +14,7 @@ export const LocationCollectionComponent: React.FC<Props> = (props) => {
 
   return (
     <>
-      {locationList ? (
+      {locationList && locationList.length !== 0 ? (
         <div className={classes.root}>
           <ul className={classes.list}>
             {locationList.map((location) => (

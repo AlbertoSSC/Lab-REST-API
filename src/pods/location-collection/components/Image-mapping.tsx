@@ -1,27 +1,34 @@
 import React from 'react';
 
-import planetImage from '../../../images/planet.png';
-import spaceStationImage from '../../../images/spaceStation.png';
-import unknownImage from '../../../images/unknown.png';
-import clusterImage from '../../../images/cluster.png';
-import dreamImage from '../../../images/dream.png';
-import fantasyImage from '../../../images/fantasy.png';
+import dreamImage from '@images/dream.png';
+import fantasyImage from '@images/fantasy.png';
+import planetImage from '@images/planet.png';
+import clusterImage from '@images/planets-cluster.png';
+import resortImage from '@images/resort.png';
+import spaceImage from '@images/space-station.png';
+import unknownImage from '@images/unknown.png';
 
-import generic from '../../../images/generic.png';
+import genericImage from '@images/generic.png';
 
 const typeToImage = {
-  planet: planetImage,
-  spaceStation: spaceStationImage,
+  Dream: dreamImage,
+  Fantasy: fantasyImage,
+  Planet: planetImage,
+  Cluster: clusterImage,
+  Resort: resortImage,
+  'Space station': spaceImage,
+  'Fantasy town': fantasyImage,
   unknown: unknownImage,
-  cluster: clusterImage,
-  dream: dreamImage,
-  fantasy: fantasyImage,
 };
 
-const YourComponent = ({ type }) => {
-  const imageUrl = typeToImage[type] || generic;
+export const ImageMapping = ({ type }) => {
+  const imageUrl = typeToImage[type] || genericImage;
 
-  return <img src={imageUrl} alt={`Image: ${type}`} />;
+  return (
+    <img
+      src={imageUrl}
+      alt={`Image: ${type}`}
+      style={{ width: '40px', height: '40px' }}
+    />
+  );
 };
-
-export default YourComponent;
