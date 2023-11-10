@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-import { Pagination, Skeleton } from '@mui/material';
+import { Pagination } from '@mui/material';
 
 import { getTotalPages } from './api';
 import {
   CharacterCollectionContext,
   SearchBar,
   SearchCharacterContext,
+  useCharacterCollection,
+  CharacterCollectionComponent,
 } from 'pods';
-import { useCharacterCollection } from './character-collection.hook';
-import { CharacterCollectionComponent } from './character-collection.component';
-import { LoadingSkeleton } from 'common/components/loading-skeleton';
+import { LoadingSkeleton } from 'common';
 
 export const CharacterCollectionContainer = () => {
   const { loadCharacterCollection } = useCharacterCollection();
@@ -49,13 +49,10 @@ export const CharacterCollectionContainer = () => {
     gettingTotalPages();
   }, [page]);
 
-  console.log(page, searchCharacter.length);
-
-
   return (
     <>
       <h3 style={{ display: 'flex', justifyContent: 'center' }}>
-        R&M - Character collection
+        Character collection
       </h3>
       <SearchBar
         setSearching={setSearching}

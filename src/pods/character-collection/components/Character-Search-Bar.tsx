@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, TextField } from '@mui/material';
 
-import { SearchCharacterContext, paginateArray } from 'pods';
+import { SearchCharacterContext, paginateArray } from 'pods/character-collection';
 import { getCharacterCollection } from '../api';
 import { mapFromApiToVm, mapToCollection } from 'common';
 

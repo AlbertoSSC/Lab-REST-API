@@ -1,17 +1,15 @@
 import * as React from 'react';
 
-import { CharacterEntityVm } from 'common';
+import { CharacterEntityVm, LoadingSkeleton } from 'common';
+
+import * as classes from '../../common/components/collection.styles';
 import { CharacterCard } from './components/character-card.component';
-import * as classes from './character-collection.styles';
-import { LoadingSkeleton } from 'common/components/loading-skeleton';
 
 interface Props {
   characterList: CharacterEntityVm[] | CharacterEntityVm[][];
 }
 
-export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
-  props
-) => {
+export const CharacterCollectionComponent: React.FC<Props> = (props) => {
   const { characterList } = props;
 
   return (

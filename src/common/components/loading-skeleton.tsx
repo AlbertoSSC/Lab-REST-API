@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LinearProgress, Skeleton } from '@mui/material';
 
-import { list } from 'pods/character-collection/character-collection.styles';
+import { list } from 'common/components/collection.styles';
 
 export const LoadingSkeleton = () => {
   return (
