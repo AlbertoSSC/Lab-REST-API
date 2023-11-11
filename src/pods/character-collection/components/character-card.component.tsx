@@ -63,7 +63,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
             </Typography>
           </div>
 
-          <Avatar src={character.image} />
+          <Avatar src={character.image} sx={{width:"50px", height:"50px"}} />
         </div>
 
         <Typography variant="body2" color="text.secondary">

@@ -8,6 +8,8 @@ import {
   getLocationTotalPages,
 } from 'pods';
 
+import locationImage from 'assets/images/RMtext/locations.png';
+
 export const LocationCollectionContainer = () => {
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
@@ -31,9 +33,15 @@ export const LocationCollectionContainer = () => {
 
   return (
     <>
-      <h3 style={{ display: 'flex', justifyContent: 'center' }}>
-        Location collection
-      </h3>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '2rem',
+        }}
+      >
+        <img src={locationImage} width="200px"/>
+      </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <LocationCollectionComponent locationList={locationList} />

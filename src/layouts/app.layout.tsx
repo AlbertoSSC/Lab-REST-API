@@ -1,9 +1,10 @@
 import React from 'react';
 
-import * as classes from './app.layout.styles';
+import { NavLink } from 'react-router-dom';
 
-import { AppBar, Button, Toolbar } from '@mui/material/';
-import { Link } from 'react-router-dom';
+import { AppBar, Toolbar } from '@mui/material/';
+
+import * as classes from './app.layout.styles';
 
 interface Props {
   children: React.ReactNode;
@@ -16,15 +17,30 @@ export const AppLayout: React.FC<Props> = (props) => {
     <>
       <AppBar position="static">
         <Toolbar variant="dense" sx={{ justifyContent: 'center' }}>
-          <Button sx={{ color: 'white' }} component={Link} to="/character">
-            Characters
-          </Button>
-          <Button sx={{ color: 'white' }} component={Link} to="/location">
-            Locations
-          </Button>
-          <Button sx={{ color: 'white' }} component={Link} to="/episode">
-            Episodes
-          </Button>
+          <NavLink
+            to="/character"
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.inactiveLink
+            }
+          >
+            CHARACTERS
+          </NavLink>
+          <NavLink
+            to="/location"
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.inactiveLink
+            }
+          >
+            LOCATIONS
+          </NavLink>
+          <NavLink
+            to="/episode"
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.inactiveLink
+            }
+          >
+            EPISODES
+          </NavLink>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>{children}</main>

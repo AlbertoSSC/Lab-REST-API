@@ -12,6 +12,8 @@ import {
 } from 'pods';
 import { LoadingSkeleton } from 'common';
 
+import characterImage from 'assets/images/RMtext/characters.png';
+
 export const CharacterCollectionContainer = () => {
   const { loadCharacterCollection } = useCharacterCollection();
 
@@ -51,18 +53,23 @@ export const CharacterCollectionContainer = () => {
 
   return (
     <>
-      <h3 style={{ display: 'flex', justifyContent: 'center' }}>
-        Character collection
-      </h3>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '2rem',
+        }}
+      >
+        <img src={characterImage} width="200px" />
+      </div>
+
       <SearchBar
         setSearching={setSearching}
         setSearchCharacterTotalPages={setSearchCharacterTotalPages}
         totalPages={totalPages}
       />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        {searching ? (
-          <LoadingSkeleton />
-        ) : (
+        {!searching ? (
           <CharacterCollectionComponent
             characterList={
               searchCharacter.length === 0
@@ -70,6 +77,8 @@ export const CharacterCollectionContainer = () => {
                 : searchCharacter[page - 1]
             }
           />
+        ) : (
+          <LoadingSkeleton />
         )}
       </div>
       <Pagination

@@ -25,7 +25,7 @@ export const EpisodeCard: React.FC<Props> = (props) => {
     background-color:  #e3f2fd;
     display: flex;
     align-items: center;
-    height: 3.5rem;
+    height: 3rem;
   `;
 
   return (
@@ -65,7 +65,7 @@ export const EpisodeCard: React.FC<Props> = (props) => {
           <div className={episodeStyles}>
             <Typography
               sx={{ m: '0.2rem 0rem' }}
-              variant="body1"
+              variant="body2"
               color="text.secondary"
             >
               {episode.episode}

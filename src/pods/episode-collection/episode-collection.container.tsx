@@ -8,6 +8,9 @@ import {
   getEpisodeTotalPages,
 } from 'pods';
 
+import episodeImage from 'assets/images/RMtext/episodes.png';
+
+
 export const EpisodeCollectionContainer = () => {
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
@@ -31,9 +34,15 @@ export const EpisodeCollectionContainer = () => {
 
   return (
     <>
-      <h3 style={{ display: 'flex', justifyContent: 'center' }}>
-        Episode collection
-      </h3>
+     <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '2rem',
+        }}
+      >
+        <img src={episodeImage} width="200px"/>
+      </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <EpisodeCollectionComponent episodeList={episodeList} />

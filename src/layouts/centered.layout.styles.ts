@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { theme } from 'core/theme';
+import { theme } from 'core';
 
 export const root = css`
   display: grid;
@@ -7,7 +7,8 @@ export const root = css`
   align-items: center;
   margin-top: 2rem;
 
-  @media (min-width: ${theme.breakpoints.values.sm}px) {
+  @media (min-width: 600px) {
     justify-items: center;
   }
 `;
+

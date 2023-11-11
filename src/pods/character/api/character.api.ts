@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CharacterEntityApi } from 'common/models';
+import { CharacterEntityApi } from 'common';
 
 export const getCharacter = async (i: number): Promise<CharacterEntityApi> => {
   const id = i.toString();
