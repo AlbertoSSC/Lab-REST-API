@@ -2,7 +2,14 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Avatar, Button, Card, Divider, Typography } from '@mui/material';
+import {
+  Avatar,
+  Button,
+  Card,
+  Divider,
+  Skeleton,
+  Typography,
+} from '@mui/material';
 
 import { CharacterEntityVm } from 'common';
 import { styles } from './components';
@@ -14,28 +21,47 @@ interface Props {
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character } = props;
 
-  if (character)
-    return (
-      <>
+  return (
+    <>
+      {!character ? (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: "center"
+          }}
+        >
+          <h2>Cargando...</h2>
+          <Skeleton
+            variant="rounded"
+            width={300}
+            height={400}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          />
+        </div>
+      ) : (
         <div style={styles.detailCardContainer}>
           <Card sx={styles.cardContainer}>
-            <h1>{character.name}</h1>
+            <h1>{character?.name}</h1>
             <Avatar
-              src={character.image}
+              src={character?.image}
               alt="avatar image"
               sx={styles.avatar}
             />
             <Typography>
               <b>
-                {character.status} · {character.species} · {character.gender}{' '}
+                {character?.status} · {character?.species} · {character?.gender}{' '}
               </b>
             </Typography>
 
             <Typography>
-              <i>Org.:</i> {character.origin}
+              <i>Org.:</i> {character?.origin}
             </Typography>
             <Typography>
-              <i>Loc.:</i> {character.location}
+              <i>Loc.:</i> {character?.location}
             </Typography>
 
             <Divider sx={{ width: '100%', marginBottom: '0.5rem' }} />
@@ -50,6 +76,7 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
             </Button>
           </Card>
         </div>
-      </>
-    );
+      )}
+    </>
+  );
 };

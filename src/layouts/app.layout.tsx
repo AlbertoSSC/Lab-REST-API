@@ -22,8 +22,8 @@ export const AppLayout: React.FC<Props> = (props) => {
           <Button sx={{ color: 'white' }} component={Link} to="/location">
             Locations
           </Button>
-          <Button sx={{ color: 'white' }} component={Link} to="/location">
-            Epidodes
+          <Button sx={{ color: 'white' }} component={Link} to="/episode">
+            Episodes
           </Button>
         </Toolbar>
       </AppBar>

@@ -4,6 +4,7 @@ interface SwitchRoutes {
   root: string;
   characterCollection: string;
   locationCollection: string;
+  episodeCollection: string;
   characterDetail: string;
 }
 
@@ -11,6 +12,7 @@ export const switchRoutes: SwitchRoutes = {
   root: '/',
   characterCollection: '/character',
   locationCollection: '/location',
+  episodeCollection: '/episode',
   characterDetail: '/character/:id',
 };
 
