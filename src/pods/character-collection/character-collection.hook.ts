@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { getCharacterCollection } from './api';
-import { mapFromApiToVm, mapToCollection, CharacterEntityVm } from 'common';
+import {
+  mapFromApiToVm,
+  mapToCollection,
+  getRMCollection,
+  CharacterEntityApi,
+} from 'common';
 import { CharacterCollectionContext } from './components';
 
 export const useCharacterCollection = () => {
@@ -10,11 +14,12 @@ export const useCharacterCollection = () => {
   );
 
   const loadCharacterCollection = async (page: number) => {
-    getCharacterCollection(page)
-      .then((result) => mapToCollection(result, mapFromApiToVm))
+    getRMCollection(page, 'character')
+      .then((result: CharacterEntityApi[]) =>
+        mapToCollection(result, mapFromApiToVm)
+      )
       .then((result) => setCharacterCollection(result));
   };
 
   return { loadCharacterCollection };
-  
 };

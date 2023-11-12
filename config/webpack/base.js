@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
 const helpers = require('./helpers');
 
@@ -62,6 +63,12 @@ module.exports = merge(
         filename: 'index.html',
         template: 'index.html',
       }),
-    ],
+      process.env.NODE_ENV === 'production' &&
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: 'stats/report.html',
+          openAnalyzer: false,
+        }),
+    ].filter(Boolean),
   }
 );

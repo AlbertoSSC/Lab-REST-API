@@ -2,14 +2,10 @@ import * as React from 'react';
 
 import { Pagination } from '@mui/material';
 
-import {
-  EpisodeCollectionComponent,
-  getEpisodeCollection,
-  getEpisodeTotalPages,
-} from 'pods';
+import { EpisodeCollectionComponent } from 'pods';
+import { getRMCollection, getRMCollectionTotalPages } from 'common';
 
 import episodeImage from 'assets/images/RMtext/episodes.png';
-
 
 export const EpisodeCollectionContainer = () => {
   const [page, setPage] = React.useState(1);
@@ -17,13 +13,13 @@ export const EpisodeCollectionContainer = () => {
   const [episodeList, setEpisodeList] = React.useState([]);
 
   const settingTotalPages = async () => {
-    return setTotalPages(await getEpisodeTotalPages());
+    return setTotalPages(await getRMCollectionTotalPages('episode'));
   };
   settingTotalPages();
 
   React.useEffect(() => {
     const gettingEpisodeList = async () => {
-      return setEpisodeList(await getEpisodeCollection(page));
+      return setEpisodeList(await getRMCollection(page, 'episode'));
     };
     gettingEpisodeList();
   }, [page]);
@@ -34,14 +30,14 @@ export const EpisodeCollectionContainer = () => {
 
   return (
     <>
-     <div
+      <div
         style={{
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '2rem',
         }}
       >
-        <img src={episodeImage} width="200px"/>
+        <img src={episodeImage} width="200px" />
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>

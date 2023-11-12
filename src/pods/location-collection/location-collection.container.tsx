@@ -2,11 +2,8 @@ import * as React from 'react';
 
 import { Pagination } from '@mui/material';
 
-import {
-  LocationCollectionComponent,
-  getLocationCollection,
-  getLocationTotalPages,
-} from 'pods';
+import { LocationCollectionComponent } from 'pods';
+import { getRMCollection, getRMCollectionTotalPages } from 'common';
 
 import locationImage from 'assets/images/RMtext/locations.png';
 
@@ -16,13 +13,13 @@ export const LocationCollectionContainer = () => {
   const [locationList, setLocationList] = React.useState([]);
 
   const settingTotalPages = async () => {
-    return setTotalPages(await getLocationTotalPages());
+    return setTotalPages(await getRMCollectionTotalPages('location'));
   };
   settingTotalPages();
 
   React.useEffect(() => {
     const gettingLocationList = async () => {
-      return setLocationList(await getLocationCollection(page));
+      return setLocationList(await getRMCollection(page, 'location'));
     };
     gettingLocationList();
   }, [page]);
@@ -40,7 +37,7 @@ export const LocationCollectionContainer = () => {
           marginBottom: '2rem',
         }}
       >
-        <img src={locationImage} width="200px"/>
+        <img src={locationImage} width="200px" />
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>

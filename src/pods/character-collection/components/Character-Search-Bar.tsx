@@ -3,8 +3,12 @@ import React from 'react';
 import { Button, TextField } from '@mui/material';
 
 import { SearchCharacterContext, paginateArray } from 'pods';
-import { getCharacterCollection } from '../api';
-import { mapFromApiToVm, mapToCollection } from 'common';
+import {
+  CharacterEntityApi,
+  getRMCollection,
+  mapFromApiToVm,
+  mapToCollection,
+} from 'common';
 
 interface Props {
   setSearching: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,8 +44,10 @@ export const SearchBar: React.FC<Props> = (props) => {
 
     if (wordToSearch !== '') {
       for (let i = 1; i <= totalPages; i++) {
-        const gettingChars = await getCharacterCollection(i)
-          .then((result) => mapToCollection(result, mapFromApiToVm))
+        const gettingChars = await getRMCollection(i, 'character')
+          .then((result: CharacterEntityApi[]) =>
+            mapToCollection(result, mapFromApiToVm)
+          )
           .then((result) => {
             return result;
           });

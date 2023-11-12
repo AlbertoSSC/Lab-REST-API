@@ -17,15 +17,15 @@ export const LoadingSkeleton = () => {
         <span>Cargando...</span>
         <LinearProgress sx={{ margin: '0.5rem' }} />
         <div className={list}>
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
-          <Skeleton variant="rounded" width={328} height={70} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
+          <Skeleton variant="rounded" width={328} height={120} />
         </div>
       </div>
     </>

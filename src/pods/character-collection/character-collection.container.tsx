@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Pagination } from '@mui/material';
 
-import { getTotalPages } from './api';
 import {
   CharacterCollectionContext,
   SearchBar,
@@ -10,7 +9,7 @@ import {
   useCharacterCollection,
   CharacterCollectionComponent,
 } from 'pods';
-import { LoadingSkeleton } from 'common';
+import { LoadingSkeleton, getRMCollectionTotalPages } from 'common';
 
 import characterImage from 'assets/images/RMtext/characters.png';
 
@@ -46,7 +45,7 @@ export const CharacterCollectionContainer = () => {
       loadCharacterCollection(page);
     }
     const gettingTotalPages = async () => {
-      return setTotalPages(await getTotalPages());
+      return setTotalPages(await getRMCollectionTotalPages('character'));
     };
     gettingTotalPages();
   }, [page]);
